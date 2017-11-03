@@ -1,12 +1,12 @@
 # Databricks notebook source
 # Parameters are passed from pipeline executor (calling the information from Google Sheet)
 # The code's are generalized to the degree of new transaction from which product issuance data being inserted/updated to customer unique email data of which product
-product = "hotel"
-unique_email_collection = "hotel"
-product_issuance_data_path = "/mnt/S3_mktg_prod_data/v1/raw/parquet/hotel/denormjs.track_hotel_issued.day_1/*/*/*"
-customer_unique_email_data_path = "/mnt/S3_mktg_prod_general/mktg/bima_playground/temp/customer_table/hotel_unique_email.pq"
-update_with_n_latest_date = 7
-acquired_from_info = "TVLK_HOTEL"
+product = dbutils.widgets.get("product")
+unique_email_collection = dbutils.widgets.get("unique_email_collection")
+product_issuance_data_path = dbutils.widgets.get("product_issuance_data_path")
+customer_unique_email_data_path = dbutils.widgets.get("customer_unique_email_data_path")
+update_with_n_latest_date = dbutils.widgets.get("update_with_n_latest_date")
+acquired_from_info = dbutils.widgets.get("acquired_from_info")
 
 # COMMAND ----------
 
